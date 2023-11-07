@@ -6,9 +6,9 @@ import { clearCart } from "../Components/Feature/cartSlice";
 
 import ItemMenu from "../Components/SingleItem";
 import { useGetAllProductsQuery } from "../customHooks/ReactQuery";
-import { Suspense, lazy } from "react";
+import { lazy } from "react";
 import { v4 as uuidv4 } from "uuid";
-const Footer = lazy(() => import("../Components/Footer"));
+import Footer from "../Components/Footer";
 
 const CartContainer = () => {
   const { cartItems, amount, total } = useSelector((store) => store.cart);
@@ -41,13 +41,7 @@ const CartContainer = () => {
               </Link>
             </div>
           </div>
-          <div
-            className={`default ${
-              currentState === "fullWidth" || currentState === "highWidth"
-                ? "max-wid-1280-px"
-                : "width-100-p"
-            } justify-con-cnt  over-flw-y-aut`}
-          >
+          <div className="default max-wid-1280-px width-100-p justify-con-cnt  over-flw-y-aut">
             <div
               className={`default  dis-grid grid-aut-flo-col  ${
                 currentState === "verylowWidth"
@@ -100,20 +94,13 @@ const CartContainer = () => {
               <h2 className="default font-siz-30-px ">Your Cart </h2>
             </header>
             <div className="default bor-sty-sol bor-col bor-bot-wid-1px padd-bot-24px min-hei-500-px ali-ite-cnt flex-gro-1">
-              <div className="default gap-20-px width-100-p ali-ite-cnt">
+              <div className="default gap-20-px width-100-p ali-ite-cnt padd-lef-10-px padd-rig-10-px ">
                 {cartItems.map((item) => {
                   return (
                     <div
                       key={uuidv4()}
-                      className={`default bor-sty-sol  bor-col-gold-2 bor--rad-2-dvb bor-sty-sol bor-wid-1px   ${
+                      className={`default max-wid-800-px width-100-p bor-sty-sol  bor-col-gold-2 bor--rad-2-dvb bor-sty-sol bor-wid-1px   ${
                         currentState === "verylowWidth" ? "" : "hei-120-px"
-                      }  ${
-                        currentState === "lowWidth" ||
-                        currentState === "mediumWidth"
-                          ? "wid-500-px"
-                          : currentState === "verylowWidth"
-                          ? "width-100-p"
-                          : "wid-800-px"
                       } `}
                     >
                       <CartItem {...item} />
@@ -125,7 +112,7 @@ const CartContainer = () => {
           </div>
           <div className="default width-100-p   ">
             <div className="default width-100-p  ">
-              <div className="default flex-dir-row max-wid-800-px flex-gro-1 ">
+              <div className="default flex-dir-row max-wid-800-px flex-gro-1  ">
                 <div className="default flex-gro-1">
                   <a
                     onClick={() => dispatch(clearCart())}

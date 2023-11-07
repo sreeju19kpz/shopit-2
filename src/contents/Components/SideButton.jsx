@@ -6,9 +6,7 @@ const SideButton = ({ close }) => {
   return (
     <>
       {currentState === "lowWidth" && (
-        <div
-          className={`default flex  ali-ite-cnt hei-60-px   justify-con-cnt ali-ite-cnt`}
-        >
+        <div className="default flex  ali-ite-cnt hei-60-px   justify-con-cnt ali-ite-cnt">
           <div
             onClick={close}
             className="default flex hei-33-px wid-33-px  justify-con-cnt ali-ite-cnt cur-sty-oh-poi"

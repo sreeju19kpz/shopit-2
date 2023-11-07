@@ -10,18 +10,21 @@ import { useGetAllProductsQuery } from "../customHooks/ReactQuery";
 import SearchDrawer from "../Components/SearchDrawer";
 import SearchChip from "../Components/SearchChip";
 import { Box, CircularProgress } from "@mui/material";
-const NoResultComponent = lazy(() => import("../Components/NoResultComponent"));
 const Footer = lazy(() => import("../Components/Footer"));
+
+const NoResultComponent = lazy(() => import("../Components/NoResultComponent"));
 
 const Watches = () => {
   const { currentState } = useShowPanels();
   const [searchParams] = useSearchParams();
+
   const {
     isLoading: loading,
     error: failed,
     status,
     data,
   } = useGetAllProductsQuery();
+
   const [prod, setProd] = useState([]);
   const [entry] = searchParams.entries();
   useEffect(() => {
@@ -114,7 +117,9 @@ const Watches = () => {
         </div>
 
         <div className="default flex-dir-row width-100-p max-wid-1280-px ">
-          {currentState !== "lowWidth" && currentState !== "verylowWidth" && (
+          {!(
+            currentState === "lowWidth" || currentState === "verylowWidth"
+          ) && (
             <div className="default flex-gro-1 flex-shr-1 flex-ali-end ">
               <div className="default wid-250-px bg-col-whi bor-sty-sol bor-lef-wid-1px bor-rig-wid-1px bor-top-wid-1px bor-col-lig-2">
                 <SearchOptions item={WatchOnlyList[0]} />

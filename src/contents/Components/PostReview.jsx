@@ -26,11 +26,9 @@ const PostReview = (props) => {
   return (
     <div
       className={`default ${
-        currentState === "fullWidth" ||
-        currentState === "highWidth" ||
-        currentState === "mediumWidth"
-          ? "wid-850-px "
-          : " width-100-p"
+        currentState === "verylowWidth" || currentState === "lowWidth"
+          ? "width-100-p "
+          : "wid-850-px"
       }  back-sha-4  bor--rad-1-dvb`}
     >
       <div className="default width-100-p pad-30-px ">

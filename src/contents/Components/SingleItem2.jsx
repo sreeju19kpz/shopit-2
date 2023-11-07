@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ItemMenu = ({ id, name, img, price, offer, url }) => {
+const ItemMenu = ({ name, img, price, offer, url }) => {
   return (
     <div className="default flex-dir-row height-100-p ali-ite-cnt ">
       <div className="default width-100-p height-100-p flex-gro-1 justify-con-cnt ali-ite-cnt ">

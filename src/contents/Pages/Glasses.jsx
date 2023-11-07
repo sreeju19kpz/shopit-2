@@ -1,20 +1,17 @@
 import React, { Suspense, lazy, useEffect, useState } from "react";
-
 import SingleProduct from "../Components/SingleProduct";
 import useShowPanels from "../customHooks/useShowPanels";
-
 import { GlassOnlyList } from "../Lists/GlassList";
-
 import { useSearchParams } from "react-router-dom";
-
 import { useGetAllProductsQuery } from "../customHooks/ReactQuery";
-
 import SearchDrawer from "../Components/SearchDrawer";
 import SearchChip from "../Components/SearchChip";
 import { Box, CircularProgress } from "@mui/material";
-const SearchOptions = lazy(() => import("../Components/SearchOptions"));
-const NoResultComponent = lazy(() => import("../Components/NoResultComponent"));
+import SearchOptions from "../Components/SearchOptions";
 const Footer = lazy(() => import("../Components/Footer"));
+
+const NoResultComponent = lazy(() => import("../Components/NoResultComponent"));
+
 const Glasses = () => {
   const { currentState } = useShowPanels();
   const [searchParams] = useSearchParams();
@@ -117,9 +114,9 @@ const Glasses = () => {
             )}
           </div>
           <div className="default flex-dir-row width-100-p  max-wid-1280-px ">
-            {currentState === "verylowWidth" || currentState === "lowWidth" ? (
-              <></>
-            ) : (
+            {!(
+              currentState === "verylowWidth" || currentState === "lowWidth"
+            ) && (
               <div className="default flex-gro-1 flex-shr-1 flex-ali-end ">
                 <div className="default wid-250-px bg-col-whi bor-sty-sol bor-lef-wid-1px bor-rig-wid-1px bor-top-wid-1px bor-col-lig-2">
                   <Suspense fallback={<></>}>

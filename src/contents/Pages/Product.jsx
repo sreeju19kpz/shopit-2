@@ -14,7 +14,7 @@ import { useGetAllProductsQuery } from "../customHooks/ReactQuery";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 import { getProd } from "../customHooks/api";
-const Footer = lazy(() => import("../Components/Footer"));
+import Footer from "../Components/Footer";
 
 export function loader(id) {
   return defer({ prod: getProd(id) });
@@ -48,19 +48,6 @@ const Product = () => {
       setIsPurchased(true);
     } else setIsPurchased(false);
   }
-
-  /* if (loading) {
-    return (
-      <>
-        {" "}
-        <div className="default width-100-p hei-300-px ali-ite-cnt justify-con-cnt">
-          <Box sx={{ display: "flex" }}>
-            <CircularProgress />
-          </Box>
-        </div>
-      </>
-    );
-  }*/
 
   function ReturnElements(data) {
     useEffect(() => {
@@ -144,8 +131,6 @@ const Product = () => {
                 }  bor--rad-2-dvb ${
                   currentState === "fullWidth" || currentState === "highWidth"
                     ? ""
-                    : currentState === "lowWidth"
-                    ? "width-100-p "
                     : "width-100-p"
                 }`}
               >
@@ -223,14 +208,7 @@ const Product = () => {
                       </div>
                     </div>
                   </div>
-                  <div
-                    className={`default flex-dir-row ${
-                      currentState === "verylowWidth" ||
-                      currentState === "lowWidth"
-                        ? "max-wid-400-px"
-                        : ""
-                    }  width-100-p justify-con-spc-btw`}
-                  >
+                  <div className="default flex-dir-row max-wid-400-px width-100-p justify-con-spc-btw">
                     <div>
                       <img
                         className="wid-33-px"
@@ -269,19 +247,9 @@ const Product = () => {
                 currentState === "verylowWidth"
                   ? "padd-lef-10-px padd-rig-10-px padd-bot-10-px padd-top-10-px"
                   : "pad-30-px "
-              }  bor--rad-2-dvb ${
-                currentState === "fullWidth" || currentState === "highWidth"
-                  ? "wid-1000-px"
-                  : "width-100-p"
-              }  lin-hei-24-px`}
+              }  bor--rad-2-dvb max-wid-1000-px width-100-p lin-hei-24-px`}
             >
-              <div
-                className={`default gap-ver-20-hor-0-px  ${
-                  currentState === "fullWidth" || currentState === "highWidth"
-                    ? "wid-800-px"
-                    : "width-100-p"
-                }`}
-              >
+              <div className="default gap-ver-20-hor-0-px max-wid-800-px width-100-p">
                 <span className="font-wei-500 font-siz-20-px ">
                   Important :
                 </span>
@@ -333,19 +301,9 @@ const Product = () => {
                 currentState === "verylowWidth"
                   ? "padd-lef-10-px padd-rig-10-px padd-bot-10-px padd-top-10-px"
                   : "pad-30-px "
-              } bor--rad-2-dvb ${
-                currentState === "fullWidth" || currentState === "highWidth"
-                  ? "wid-1000-px"
-                  : "width-100-p"
-              }  lin-hei-24-px`}
+              } bor--rad-2-dvb max-wid-1000-px width-100-p lin-hei-24-px`}
             >
-              <div
-                className={`default gap-ver-20-hor-0-px ${
-                  currentState === "fullWidth" || currentState === "highWidth"
-                    ? "wid-800-px"
-                    : "width-100-p"
-                }`}
-              >
+              <div className="default gap-ver-20-hor-0-px max-wid-800-px width-100-p ">
                 <div className="font-wei-500 font-siz-20-px">
                   Product Details
                 </div>
@@ -414,13 +372,7 @@ const Product = () => {
             </div>
           </div>
           <div className="default width-100-p  ali-ite-cnt ">
-            <div
-              className={`default ${
-                currentState === "fullWidth" || currentState === "highWidth"
-                  ? "max-wid-1280-px"
-                  : "width-100-p"
-              } justify-con-cnt  over-flw-y-aut`}
-            >
+            <div className="default max-wid-1280-px width-100-p justify-con-cnt  over-flw-y-aut">
               <div
                 className={`default  dis-grid grid-aut-flo-col  ${
                   currentState === "verylowWidth"
@@ -504,9 +456,8 @@ const Product = () => {
             </div>
           </div>
         </div>
-        <Suspense fallback={<></>}>
-          <Footer />
-        </Suspense>
+
+        <Footer />
       </>
     );
   }

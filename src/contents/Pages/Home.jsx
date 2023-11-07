@@ -14,7 +14,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useGetAllProductsQuery } from "../customHooks/ReactQuery";
 
 import SnackBarIdGen from "../Components/SnackBarIdGen";
-const Footer = lazy(() => import("../Components/Footer"));
+import Footer from "../Components/Footer";
 
 const Home = () => {
   const { currentState } = useShowPanels();
@@ -70,9 +70,8 @@ const Home = () => {
                 <div
                   key={uuidv4()}
                   className={`default ali-ite-cnt justify-con-cnt ${
-                    currentState === "verylowWidth"
-                      ? ""
-                      : "padd-rig-10-px  padd-lef-10-px  padd-bot-10-px  padd-top-10-px "
+                    currentState === "verylowWidth" &&
+                    "padd-rig-10-px  padd-lef-10-px  padd-bot-10-px  padd-top-10-px "
                   } mak-ele-uns max-wid-150-px`}
                 >
                   <ItemMenu name={name} img={img} url={url} />
@@ -144,9 +143,7 @@ const Home = () => {
           ></div>
         )}
       </div>
-
       <Footer />
-
       <SnackBarIdGen />
     </div>
   );

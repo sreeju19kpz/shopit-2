@@ -1,19 +1,9 @@
 import React from "react";
-import useShowPanels from "../customHooks/useShowPanels";
 
 const Searchbar = () => {
-  const { currentState } = useShowPanels();
   return (
     <>
-      <div
-        className={`default flex-gro-1 flex padd-lef-10-px padd-rig-10-px ${
-          currentState === "fullWidth" ||
-          currentState === "highWidth" ||
-          currentState === "highWidth"
-            ? "wid-600-px"
-            : "width-100-p"
-        } `}
-      >
+      <div className="default flex-gro-1 flex padd-lef-10-px padd-rig-10-px max-wid-600-px width-100-p ">
         <div className="default width-100-p flex flex-dir-row hei-60-px ali-ite-cnt">
           <form className="default bor-wid-1px bor-all-rad-9999-px width-100-p">
             <label className="default flex-gro-1 flex flex-dir-row ">

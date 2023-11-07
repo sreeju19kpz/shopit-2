@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ReactDOM from "react-dom";
 import useFetchWindowSize from "../customHooks/FetchWindowSize";
 
-const NavBarExpansion = ({ lName, item, state, close, cont }) => {
+const NavBarExpansion = ({ lName, item, state, cont }) => {
   const { windowSize } = useFetchWindowSize();
   return ReactDOM.createPortal(
     <>

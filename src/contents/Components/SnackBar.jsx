@@ -26,7 +26,6 @@ const theme = createTheme({
 });
 
 const SnackBar = ({ id }) => {
-  const { currentState } = useShowPanels();
   const data = useGetSingleProductQuery(id);
   const [open, setOpen] = useState({ open: false, Transition: Slide });
   const [messageInfo, setMessageInfo] = React.useState(undefined);
@@ -81,7 +80,8 @@ const SnackBar = ({ id }) => {
                   <div
                     className="default width-100-p flex-dir-row"
                     style={{
-                      Width: currentState === "verylowWidth" ? "100%" : "300px",
+                      maxWidth: "300px",
+                      Width: "100%",
                     }}
                   >
                     <div className="default hei-60-px flex-dir-row gap-20-px flex-gro-1">

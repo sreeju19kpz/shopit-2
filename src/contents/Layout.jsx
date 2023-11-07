@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import Header from "./Header";
+import React, { Suspense, lazy, useEffect } from "react";
+
 import { Outlet, ScrollRestoration } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { CalculateTotal } from "./Components/Feature/cartSlice";
-
+import Header from "./Header";
 const Layout = () => {
   const dispatch = useDispatch();
 

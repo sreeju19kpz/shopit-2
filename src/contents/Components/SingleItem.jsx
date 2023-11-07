@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useShowPanels from "../customHooks/useShowPanels";
 
 const ItemMenu = ({ id, name, img, price, offer, ratings }) => {
-  const { currentState } = useShowPanels();
   return (
     <div className="default flex-dir-row height-100-p ali-ite-cnt padd-rig-10-px  padd-lef-10-px padd-top-10-px  padd-top-10-px ">
       <div className="default width-100-p height-100-p flex-gro-1 justify-con-cnt ali-ite-cnt  bor-sty-sol bor-wid-1px bor-col-lig-2">
@@ -15,7 +13,7 @@ const ItemMenu = ({ id, name, img, price, offer, ratings }) => {
             <div
               className={`default  justify-con-cnt ali-ite-cnt flex-gro-1 tra-sca-1-15 tra-tim-5-sec`}
             >
-              <img className={` width-70-p img-fit-cov `} src={img} alt="" />
+              <img className="width-70-p img-fit-cov" src={img} alt="" />
             </div>
             <div className="default ali-ite-cnt flex-gro-1 justify-con-cnt  gap-7-px">
               {name && (

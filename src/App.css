@@ -263,8 +263,14 @@ dialog::backdrop {
 .wid-800-px {
   width: 800px;
 }
+.max-wid-720-px {
+  max-width: 720px;
+}
 .max-wid-800-px {
   max-width: 800px;
+}
+.max-wid-900-px {
+  max-width: 900px;
 }
 .wid-850-px {
   width: 850px;
