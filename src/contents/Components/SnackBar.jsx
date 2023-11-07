@@ -29,7 +29,7 @@ const SnackBar = ({ id }) => {
   const data = useGetSingleProductQuery(id);
   const [open, setOpen] = useState({ open: false, Transition: Slide });
   const [messageInfo, setMessageInfo] = React.useState(undefined);
-
+  const { currentState } = useShowPanels();
   useEffect(() => {
     if (open.open === false) {
       setOpen({ open: true, Transition: SlideTransition });
@@ -80,7 +80,11 @@ const SnackBar = ({ id }) => {
                   <div
                     className="default width-100-p flex-dir-row"
                     style={{
-                      maxWidth: "300px",
+                      maxWidth:
+                        currentState === "lowWidth" ||
+                        currentState === "verylowWidth"
+                          ? "100%"
+                          : "300px",
                       Width: "100%",
                     }}
                   >
@@ -107,7 +111,7 @@ const SnackBar = ({ id }) => {
                         </div>
                       </div>
                     </div>
-                    <div className="default flex-gro-1 ali-ite-cnt justify-con-cnt">
+                    <div className="default ali-ite-cnt justify-con-cnt">
                       <IconButton
                         aria-label="close"
                         color="black"

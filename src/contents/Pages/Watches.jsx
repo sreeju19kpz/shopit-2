@@ -1,10 +1,8 @@
 import React, { Suspense, lazy, useEffect, useState } from "react";
-
 import SingleProduct from "../Components/SingleProduct";
 import useShowPanels from "../customHooks/useShowPanels";
 import SearchOptions from "../Components/SearchOptions";
 import { WatchOnlyList } from "../Lists/WatchList";
-
 import { useSearchParams } from "react-router-dom";
 import { useGetAllProductsQuery } from "../customHooks/ReactQuery";
 import SearchDrawer from "../Components/SearchDrawer";

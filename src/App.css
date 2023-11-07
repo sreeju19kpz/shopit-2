@@ -974,7 +974,7 @@ input[type="checkbox"] {
 @keyframes animate-in-and-out {
   entry 0% {
     opacity: 0;
-    transform: translateY(30%);
+    transform: translateY(100%);
   }
   entry 100% {
     opacity: 1;
