@@ -2,7 +2,7 @@ import React, { Suspense, lazy, useEffect, useState } from "react";
 
 import SingleProduct from "../Components/SingleProduct";
 import useShowPanels from "../customHooks/useShowPanels";
-import SearchOptions from "../Components/SearchOptions";
+
 import { GlassOnlyList } from "../Lists/GlassList";
 
 import { useSearchParams } from "react-router-dom";
@@ -12,6 +12,7 @@ import { useGetAllProductsQuery } from "../customHooks/ReactQuery";
 import SearchDrawer from "../Components/SearchDrawer";
 import SearchChip from "../Components/SearchChip";
 import { Box, CircularProgress } from "@mui/material";
+const SearchOptions = lazy(() => import("../Components/SearchOptions"));
 const NoResultComponent = lazy(() => import("../Components/NoResultComponent"));
 const Footer = lazy(() => import("../Components/Footer"));
 const Glasses = () => {
@@ -121,7 +122,9 @@ const Glasses = () => {
             ) : (
               <div className="default flex-gro-1 flex-shr-1 flex-ali-end ">
                 <div className="default wid-250-px bg-col-whi bor-sty-sol bor-lef-wid-1px bor-rig-wid-1px bor-top-wid-1px bor-col-lig-2">
-                  <SearchOptions item={GlassOnlyList[0]} />
+                  <Suspense fallback={<></>}>
+                    <SearchOptions item={GlassOnlyList[0]} />
+                  </Suspense>
                 </div>
               </div>
             )}

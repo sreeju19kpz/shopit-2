@@ -18,7 +18,7 @@ const Footer = () => {
   useEffect(() => {
     const setSW = setInterval(() => {
       setShowFooter(true);
-    }, 1000);
+    }, 100);
     return () => {
       clearInterval(setSW);
     };

@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 const Navbar = () => {
   const { currentState } = useShowPanels();
   const { isScrollingUp } = useFetchYScroll();
+
   return (
     <>
       {!(currentState === "verylowWidth" || currentState === "lowWidth") &&

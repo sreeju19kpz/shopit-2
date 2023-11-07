@@ -24,20 +24,22 @@ const CartContainer = () => {
     return (
       <div className="default ali-ite-cnt ">
         <section className="default width-100-p  ali-ite-cnt gap-7-px ">
-          <header className="default ali-ite-cnt">
-            <h2 className="default ali-ite-cnt pad-30-px font-siz-30-px ">
-              Your Cart
-            </h2>
-            <span className="default ali-ite-cnt font-wei-700">Is Empty</span>
-          </header>
+          <div className="default width-100-p min-hei-80-vh ">
+            <header className="default ali-ite-cnt">
+              <h2 className="default ali-ite-cnt pad-30-px font-siz-30-px ">
+                Your Cart
+              </h2>
+              <span className="default ali-ite-cnt font-wei-700">Is Empty</span>
+            </header>
 
-          <div className="default hei-500-px ali-ite-cnt justify-con-cnt">
-            <Link
-              to={"/"}
-              className="default text-dec-non  bor-sty-sol bor-wid-1px bor-col wid-200-px hei-45-px ali-ite-cnt justify-con-cnt bor--rad-5-px "
-            >
-              <span className="default">Continue shopping</span>
-            </Link>
+            <div className="default hei-500-px ali-ite-cnt justify-con-cnt">
+              <Link
+                to={"/"}
+                className="default text-dec-non  bor-sty-sol bor-wid-1px bor-col wid-200-px hei-45-px ali-ite-cnt justify-con-cnt bor--rad-5-px "
+              >
+                <span className="default">Continue shopping</span>
+              </Link>
+            </div>
           </div>
           <div
             className={`default ${
@@ -79,61 +81,66 @@ const CartContainer = () => {
             </div>
           </div>
         </section>
+        <Footer />
       </div>
     );
   }
   return (
     <div className="default ali-ite-cnt ">
       <section
-        className={`default  ${
+        className={`default ${
           currentState === "verylowWidth"
             ? "width-100-p padd-rig-10-px padd-lef-10-px  "
             : ""
         }`}
       >
-        <header className="default ali-ite-cnt ">
-          <h2 className="default font-siz-30-px ">Your Cart </h2>
-        </header>
-        <div className="default bor-sty-sol bor-col bor-bot-wid-1px padd-bot-24px min-hei-500-px ali-ite-cnt">
-          <div className="default gap-20-px width-100-p ali-ite-cnt">
-            {cartItems.map((item) => {
-              return (
-                <div
-                  key={uuidv4()}
-                  className={`default bor-sty-sol  bor-col-gold-2 bor--rad-2-dvb bor-sty-sol bor-wid-1px   ${
-                    currentState === "verylowWidth" ? "" : "hei-120-px"
-                  }  ${
-                    currentState === "lowWidth" ||
-                    currentState === "mediumWidth"
-                      ? "wid-500-px"
-                      : currentState === "verylowWidth"
-                      ? "width-100-p"
-                      : "wid-800-px"
-                  } `}
-                >
-                  <CartItem {...item} />
-                </div>
-              );
-            })}
-          </div>
-        </div>
-        <div className="default width-100-p   ">
-          <div className="default width-100-p  ">
-            <div className="default flex-dir-row max-wid-800-px flex-gro-1 ">
-              <div className="default flex-gro-1">
-                <a
-                  onClick={() => dispatch(clearCart())}
-                  className="default wid-120-px hei-33-px ali-ite-cnt justify-con-cnt background-col-none font-col-blue "
-                >
-                  <span className="default cur-sty-oh-poi">Clear cart</span>
-                </a>
+        <div className="default width-100-p  min-hei-80-vh">
+          <div className="default flex-gro-1">
+            <header className="default ali-ite-cnt ">
+              <h2 className="default font-siz-30-px ">Your Cart </h2>
+            </header>
+            <div className="default bor-sty-sol bor-col bor-bot-wid-1px padd-bot-24px min-hei-500-px ali-ite-cnt flex-gro-1">
+              <div className="default gap-20-px width-100-p ali-ite-cnt">
+                {cartItems.map((item) => {
+                  return (
+                    <div
+                      key={uuidv4()}
+                      className={`default bor-sty-sol  bor-col-gold-2 bor--rad-2-dvb bor-sty-sol bor-wid-1px   ${
+                        currentState === "verylowWidth" ? "" : "hei-120-px"
+                      }  ${
+                        currentState === "lowWidth" ||
+                        currentState === "mediumWidth"
+                          ? "wid-500-px"
+                          : currentState === "verylowWidth"
+                          ? "width-100-p"
+                          : "wid-800-px"
+                      } `}
+                    >
+                      <CartItem {...item} />
+                    </div>
+                  );
+                })}
               </div>
-              <div className="default flex-dir-row wid-150-px flex-ali-end">
-                <div className="default flex-gro-1 hei-33-px ali-ite-cnt justify-con-cnt">
-                  Total :
+            </div>
+          </div>
+          <div className="default width-100-p   ">
+            <div className="default width-100-p  ">
+              <div className="default flex-dir-row max-wid-800-px flex-gro-1 ">
+                <div className="default flex-gro-1">
+                  <a
+                    onClick={() => dispatch(clearCart())}
+                    className="default wid-120-px hei-33-px ali-ite-cnt justify-con-cnt background-col-none font-col-blue "
+                  >
+                    <span className="default cur-sty-oh-poi">Clear cart</span>
+                  </a>
                 </div>
-                <div className="default flex-gro-1 hei-33-px ali-ite-cnt justify-con-cnt">
-                  {total}
+                <div className="default flex-dir-row wid-150-px flex-ali-end">
+                  <div className="default flex-gro-1 hei-33-px ali-ite-cnt justify-con-cnt">
+                    Total :
+                  </div>
+                  <div className="default flex-gro-1 hei-33-px ali-ite-cnt justify-con-cnt">
+                    {total}
+                  </div>
                 </div>
               </div>
             </div>
@@ -142,7 +149,7 @@ const CartContainer = () => {
         <div
           className={`default ${
             currentState === "fullWidth" || currentState === "highWidth"
-              ? "max-wid-1000-px"
+              ? "max-wid-1280-px"
               : "width-100-p"
           } justify-con-cnt  over-flw-y-aut`}
         >
@@ -155,8 +162,8 @@ const CartContainer = () => {
                 : currentState === "mediumWidth"
                 ? "grid-aut-col-25"
                 : currentState === "highWidth"
-                ? "grid-aut-col-25"
-                : "grid-aut-col-25 "
+                ? "grid-aut-col-20"
+                : "grid-aut-col-17 "
             }`}
           >
             {!isloading &&
@@ -179,9 +186,7 @@ const CartContainer = () => {
           </div>
         </div>
       </section>
-      <Suspense fallback={<></>}>
-        <Footer />
-      </Suspense>
+      <Footer />
     </div>
   );
 };

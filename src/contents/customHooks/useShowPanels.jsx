@@ -3,7 +3,7 @@ import useFetchWindowSize from "./FetchWindowSize";
 
 const useShowPanels = () => {
   const { windowSize } = useFetchWindowSize();
-  const [currentState, setState] = useState("verylowWidth");
+  const [currentState, setState] = useState();
   useEffect(() => {
     if (windowSize.winWidth <= 499) {
       setState("verylowWidth");

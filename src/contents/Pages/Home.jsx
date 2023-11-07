@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect, useState } from "react";
+import React, { lazy, useEffect, useState } from "react";
 import FeaturedComponent from "../Components/FeaturedComponent";
 import ItemMenu from "../Components/SingleItem2";
 import { HomePageList1 } from "../Lists/HomePageList1";
@@ -144,9 +144,9 @@ const Home = () => {
           ></div>
         )}
       </div>
-      <Suspense fallback={<></>}>
-        <Footer />
-      </Suspense>
+
+      <Footer />
+
       <SnackBarIdGen />
     </div>
   );
