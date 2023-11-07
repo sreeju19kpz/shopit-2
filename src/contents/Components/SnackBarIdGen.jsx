@@ -6,7 +6,7 @@ const SnackBarIdGen = () => {
   useEffect(() => {
     const initId = setInterval(() => {
       setId(Math.floor(Math.random() * (36 - 1) + 1));
-    }, 8000);
+    }, 80000);
     return () => {
       clearInterval(initId);
     };
